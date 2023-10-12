@@ -21,6 +21,21 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
+app.post("/users", async (req, res) => {
+  if (!req.body.username || !req.body.email) {
+    return res.status(400).send("Please fill in the missing fields");
+  }
+
+  const newUser = {
+    username: req.body.username,
+    email: req.body.email,
+  };
+
+  await knex("users").insert(newUser);
+
+  res.status(200).send("User successfully added");
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
