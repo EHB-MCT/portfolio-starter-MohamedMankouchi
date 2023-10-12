@@ -36,6 +36,17 @@ app.post("/users", async (req, res) => {
   res.status(200).send("User successfully added");
 });
 
+app.put("/users/:id", async (req, res) => {
+  if (!req.body.username) {
+    return res.status(400).send("Please fill in the missing fields");
+  }
+  const userId = req.params.id;
+  await knex("users")
+    .where("id", userId)
+    .update({ username: req.body.username });
+  res.status(200).send("Username successfully changed");
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
