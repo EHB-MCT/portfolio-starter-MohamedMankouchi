@@ -2,6 +2,7 @@ version: "3.9"
 services:
   api:
     build: ./images/api
+    command: ["npm", "run", "prod"]
     environment:
       NODE_ENV:
       PG_CONNECTION_STRING:
@@ -11,8 +12,6 @@ services:
       POSTGRES_USER:
     ports:
       - 80:3000
-    volumes:
-      - ./images/api/src:/usr/app/src
     depends_on:
       db:
         condition: service_healthy
