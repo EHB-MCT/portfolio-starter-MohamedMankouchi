@@ -8,6 +8,7 @@ env:
   POSTGRES_USER: test
   POSTGRES_PASSWORD: test
   POSTGRES_DB: test
+  NODE_ENV: development
 
 jobs:
   test:
