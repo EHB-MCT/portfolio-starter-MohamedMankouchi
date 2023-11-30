@@ -1,24 +1,23 @@
 name: PullWorkflow
 
 on:
-  push:
-    branches: [ main, dev ] 
+  pull_request:
+    branches: [main, dev]
 
-env: 
+env:
   POSTGRES_USER: test
   POSTGRES_PASSWORD: test
   POSTGRES_DB: test
-  
-jobs:
+  NODE_ENV: development
 
+jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
       - name: build docker containers
-        run: docker-compose build 
+        run: docker-compose build
 
       - name: run docker containers
         run: docker-compose -f ./docker-compose.testing.yml up --build --exit-code-from api
-  

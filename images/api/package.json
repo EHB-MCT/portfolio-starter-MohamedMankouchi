@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --detectOpenHandles --forceExit",
+    "test-watch": "jest --detectOpenHandles --watchAll",
     "dev": "npm run migrate && npm run seed && npm run test && node ./src/index.js",
     "seed": "npx knex seed:run --cwd ./src/db",
     "migrate": "npx knex migrate:latest --cwd ./src/db",
