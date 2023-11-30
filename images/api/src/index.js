@@ -1,10 +1,11 @@
+<<<<<<< Updated upstream
 const express = require("express");
 const app = express();
 const cors = require("cors");
 require("dotenv").config();
 
 const knex = require("knex");
-const db = knex(require("./../db/knexfile.js")[process.env.NODE_ENV]);
+const db = knex(require("./db/knexfile.js")[process.env.NODE_ENV]);
 
 app.use(express.json());
 app.use(cors());
@@ -50,6 +51,9 @@ app.put("/users/:id", async (req, res) => {
   await db("users").where("id", userId).update({ username: req.body.username });
   res.status(200).send("Username successfully changed");
 });
+=======
+const app = require("./app");
+>>>>>>> Stashed changes
 
 app.listen(3000, () => {
   console.log(`Server is running on port ${3000}`);
