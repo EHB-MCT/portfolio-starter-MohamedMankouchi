@@ -39,4 +39,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: publish
-        run: docker push mohamedmankouchi/api
+        run: docker-compose push
