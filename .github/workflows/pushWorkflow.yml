@@ -40,3 +40,5 @@ jobs:
 
       - name: publish
         run: docker-compose push
+        with:
+          tags: mohamedmankouchi/portfolio-starter-mohamedmankouchi:latest
