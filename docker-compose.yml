@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   api:
-    build: ./images/api
+    image: mohamedmankouchi/portfolio-starter-mohamedmankouchi:latest
     environment:
       NODE_ENV:
       PG_CONNECTION_STRING:
