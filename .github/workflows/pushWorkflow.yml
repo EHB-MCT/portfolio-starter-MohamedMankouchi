@@ -37,6 +37,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          tags: mohamedmankouchi/portfolio-starter-mohamedmankouchi
 
       - name: publish
         run: docker-compose push
