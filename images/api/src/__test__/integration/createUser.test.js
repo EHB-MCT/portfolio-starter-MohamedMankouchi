@@ -7,7 +7,7 @@ describe("POST /users", () => {
   beforeAll(async () => {
     await db("users").insert({
       username: "test",
-      password: "test",
+      email: "test",
     });
   });
   afterAll(async () => {
@@ -16,7 +16,7 @@ describe("POST /users", () => {
   test("Gets back success message when creating user", async () => {
     const user = {
       username: "mohamed",
-      password: "mo@gmail.com",
+      email: "mo@gmail.com",
     };
     const response = await request(app).post("/users").send(user);
     expect(response.status).toBe(200);
@@ -26,7 +26,7 @@ describe("POST /users", () => {
   test("Gets 400 back when fields are empty", async () => {
     const user = {
       username: "",
-      password: "",
+      email: "",
     };
     const response = await request(app).post("/users").send(user);
     expect(response.status).toBe(400);
@@ -38,7 +38,7 @@ describe("POST /users", () => {
   test("Gets 400 back when user already exists in the db", async () => {
     const user = {
       username: "test",
-      password: "test",
+      email: "test",
     };
     const response = await request(app).post("/users").send(user);
     expect(response.status).toBe(400);

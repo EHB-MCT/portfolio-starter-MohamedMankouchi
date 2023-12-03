@@ -49,7 +49,7 @@ app.post("/users", async (req, res) => {
 
   const newUser = {
     username: req.body.username,
-    password: req.body.password,
+    email: req.body.email,
   };
   await db("users").insert(newUser);
   res.status(200).json("User successfully added");
