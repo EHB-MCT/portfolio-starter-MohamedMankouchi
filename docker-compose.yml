@@ -18,6 +18,16 @@ services:
       db:
         condition: service_healthy
 
+  app:
+    build: ./images/app/app
+    ports:
+      - 5173:5173
+    volumes:
+      - ./images/app/app/src:/app/src
+    depends_on:
+      db:
+        condition: service_healthy
+
   db:
     image: postgres:16.0
     healthcheck:
