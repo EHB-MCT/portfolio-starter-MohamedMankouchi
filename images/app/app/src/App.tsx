@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./App.css";
+import React from "react";
 
 function App() {
   const [input, setInput] = useState<string>("");

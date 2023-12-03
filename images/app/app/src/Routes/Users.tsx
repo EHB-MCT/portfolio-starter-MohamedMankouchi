@@ -1,8 +1,9 @@
 import { NameInitialsAvatar } from "react-name-initials-avatar";
 import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
-
+import React from "react";
 type User = {
+  id: number;
   username: string;
   email: string;
 };
@@ -34,7 +35,7 @@ export const Users = () => {
 
         <div className="createdUsers-users">
           {registerdUsers.map((el) => (
-            <div className="users">
+            <div key={el.id} className="users">
               <NameInitialsAvatar name={el.username} />
               <div className="users-credentials">
                 <p>{el.username}</p>
@@ -42,14 +43,6 @@ export const Users = () => {
               </div>
             </div>
           ))}
-
-          <div className="users">
-            <NameInitialsAvatar name="Mohamed Mankouchi" />
-            <div className="users-credentials">
-              <p>Mohamed Mankouchi</p>
-              <p>email: mo@gmail.com</p>
-            </div>
-          </div>
         </div>
       </div>
     </>
