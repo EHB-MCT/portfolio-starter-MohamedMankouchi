@@ -38,7 +38,7 @@ html,
   color: white;
 }
 
-.home-title button {
+button {
   cursor: pointer;
   border: none;
   color: white;
@@ -52,4 +52,36 @@ html,
   box-shadow: 2px 5px 50px -1px #9d00ff;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
+}
+
+.users {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: #242429;
+}
+
+.users-credentials p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.createdUsers,
+.activeUsers {
+  margin-left: 20px;
+}
+
+.activeUsers-users {
+  display: flex;
+  gap: 15px;
+}
+
+.createdUsers-users {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 10px;
 }
