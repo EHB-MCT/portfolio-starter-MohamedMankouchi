@@ -7,7 +7,7 @@ describe("DELETE /users", () => {
   beforeAll(async () => {
     await db("users").insert({
       username: "test",
-      password: "test",
+      email: "test",
     });
   });
 

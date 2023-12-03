@@ -7,7 +7,7 @@ describe("PUT /users/:id", () => {
   beforeAll(async () => {
     await db("users").insert({
       username: "test",
-      password: "test",
+      email: "test",
     });
   });
   afterAll(async () => {

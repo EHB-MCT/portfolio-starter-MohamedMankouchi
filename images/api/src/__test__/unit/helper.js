@@ -1,11 +1,11 @@
-function checkValidInput({ username, password }) {
+function checkValidInput({ username, email }) {
   if (
     username == "" ||
-    password == "" ||
+    email == "" ||
     username == null ||
-    password == null ||
+    email == null ||
     username == undefined ||
-    password == undefined
+    email == undefined
   ) {
     return false;
   }
