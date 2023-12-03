@@ -4,12 +4,6 @@ const knex = require("knex");
 const db = knex(require("../../db/knexfile.js")[process.env.NODE_ENV]);
 
 describe("POST /users", () => {
-  beforeAll(async () => {
-    await db("users").insert({
-      username: "test",
-      email: "test",
-    });
-  });
   afterAll(async () => {
     await db("users").where("username", "mohamed").del();
   });
