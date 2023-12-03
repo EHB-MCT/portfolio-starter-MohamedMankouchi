@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ProtectedRoute } from "./Routes/ProtectedRoute.tsx";
-import { Users } from "./Routes/Users.tsx";
+import { getRegisteredUsers, Users } from "./Routes/Users.tsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +18,7 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Users />,
+        loader: getRegisteredUsers,
       },
     ],
   },
