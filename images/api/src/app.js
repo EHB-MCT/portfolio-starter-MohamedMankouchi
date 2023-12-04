@@ -64,7 +64,7 @@ app.put("/users/:username", async (req, res) => {
   if (user.length == 0) {
     return res.status(404).json({ error: "User doesn't exists" });
   }
-  await db("users").where("username", username).update({ username });
+  await db("users").where("username", username).update({ username : req.body.username });
   res.status(200).json({ message: "Username successfully changed" });
 });
 

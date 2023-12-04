@@ -11,6 +11,7 @@ describe("POST /users", () => {
     const user = {
       username: "mohamed",
       email: "mo@gmail.com",
+      createdBy: "Admin",
     };
     const response = await request(app).post("/users").send(user);
     expect(response.status).toBe(200);
@@ -21,6 +22,7 @@ describe("POST /users", () => {
     const user = {
       username: "",
       email: "",
+      createdBy: "",
     };
     const response = await request(app).post("/users").send(user);
     expect(response.status).toBe(400);
@@ -33,6 +35,7 @@ describe("POST /users", () => {
     const user = {
       username: "mohamed",
       email: "mo@gmail.com",
+      createdBy: "Admin",
     };
     const response = await request(app).post("/users").send(user);
     expect(response.status).toBe(400);

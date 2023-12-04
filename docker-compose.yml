@@ -27,7 +27,7 @@ services:
       POSTGRES_HOST: db
       POSTGRES_USER:
     ports:
-      - 30001:3001
+      - 3001:3001
     volumes:
       - ./images/socket/src:/usr/app/src
     depends_on:

@@ -8,6 +8,7 @@ describe("DELETE /users", () => {
     await db("users").insert({
       username: "test",
       email: "test",
+      createdBy: "Admin",
     });
   });
 

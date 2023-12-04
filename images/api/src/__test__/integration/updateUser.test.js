@@ -8,6 +8,7 @@ describe("PUT /users/:id", () => {
     await db("users").insert({
       username: "test",
       email: "test",
+      createdBy: "Admin",
     });
   });
   afterAll(async () => {
@@ -24,7 +25,7 @@ describe("PUT /users/:id", () => {
 
     expect(response.status).toBe(200);
     expect(response.body.message).toBe("Username successfully changed");
-    const checkUpdateInDb = await db("users").where("username", "test");
+    const checkUpdateInDb = await db("users").where("username", "Mohamed");
     expect(checkUpdateInDb).toBeInstanceOf(Array);
     expect(checkUpdateInDb[0]).toBeInstanceOf(Object);
   });

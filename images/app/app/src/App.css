@@ -52,7 +52,7 @@ html,
   background-color: #9d00ff;
   color: #fff;
   box-shadow: 2px 5px 50px -1px #9d00ff;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Cabin", sans-serif;
   font-weight: bold;
 }
 
@@ -65,9 +65,25 @@ html,
   align-items: center;
   gap: 10px;
   padding: 10px;
-  width: 300px;
+  width: 400px;
   border-radius: 10px;
   background-color: #242429;
+}
+
+.users button {
+  cursor: pointer;
+  border: none;
+  color: white;
+  padding: 5px;
+  width: 70px;
+  height: 40px;
+  border-radius: 25px;
+  color: #9d00ff;
+  background-color: #9d00ff;
+  color: #fff;
+  box-shadow: 2px 5px 50px -1px #9d00ff;
+  font-family: "Cabin", sans-serif;
+  font-weight: bold;
 }
 
 .users-credentials p {
@@ -78,6 +94,7 @@ html,
 .createdUsers,
 .activeUsers {
   margin-left: 20px;
+  margin-top: 30px;
 }
 
 .activeUsers-users {

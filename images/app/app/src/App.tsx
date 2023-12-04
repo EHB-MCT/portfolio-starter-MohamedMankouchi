@@ -10,7 +10,7 @@ function App() {
     if (input == "") {
       return alert("Please fill in a username");
     }
-    localStorage.setItem("username", input);
+    sessionStorage.setItem("username", input);
     setInput("");
     window.location.href = "/users";
   };
