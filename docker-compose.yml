@@ -18,6 +18,22 @@ services:
       db:
         condition: service_healthy
 
+  socket:
+    build: ./images/socket
+    environment:
+      NODE_ENV:
+      POSTGRES_PASSWORD:
+      POSTGRES_DB:
+      POSTGRES_HOST: db
+      POSTGRES_USER:
+    ports:
+      - 30001:3001
+    volumes:
+      - ./images/socket/src:/usr/app/src
+    depends_on:
+      db:
+        condition: service_healthy
+
   app:
     build: ./images/app/app
     ports:

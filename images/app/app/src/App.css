@@ -38,7 +38,9 @@ html,
   color: white;
 }
 
-button {
+.createdUsers-container button,
+.home button,
+.modal-footer button {
   cursor: pointer;
   border: none;
   color: white;
@@ -52,6 +54,10 @@ button {
   box-shadow: 2px 5px 50px -1px #9d00ff;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
+}
+
+.modal-header button {
+  background-color: white;
 }
 
 .users {
@@ -84,4 +90,15 @@ button {
   gap: 15px;
   flex-wrap: wrap;
   padding: 10px;
+}
+
+.modal-header,
+.modal-footer,
+.modal-body {
+  background-color: #242429;
+  border: none;
+}
+
+button.btn-close {
+  background-color: white !important;
 }
