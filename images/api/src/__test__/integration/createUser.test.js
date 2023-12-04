@@ -31,8 +31,8 @@ describe("POST /users", () => {
 
   test("Gets 400 back when user already exists in the db", async () => {
     const user = {
-      username: "test",
-      email: "test",
+      username: "mohamed",
+      email: "mo@gmail.com",
     };
     const response = await request(app).post("/users").send(user);
     expect(response.status).toBe(400);
