@@ -15,7 +15,6 @@ const io = new Server(server, {
 let users = [];
 io.on("connection", async (socket) => {
   socket.on("connected", (username) => {
-    console.log(username);
     const findExistingUser = users.find((el) => el.username == username);
     if (findExistingUser) {
       users = users.filter((el) => el.username != findExistingUser.username);
@@ -32,7 +31,6 @@ io.on("connection", async (socket) => {
     io.emit("refresh", userslist);
   });
   socket.on("sendCreatedUser", async (data) => {
-    console.log(data);
     let existingUser = await db("users")
       .where("username", data.username)
       .first();
@@ -42,12 +40,10 @@ io.on("connection", async (socket) => {
     }
     await db("users").insert(data);
     let userslist = await db("users").select();
-    console.log(userslist);
     io.emit("getCreatedUsers", userslist);
   });
 
   socket.on("disconnect", () => {
-    console.log(`user with id ${socket.id}`);
     if (users.length != 0) {
       const user = users.find((el) => el.socketId == socket.id);
       if (user) {

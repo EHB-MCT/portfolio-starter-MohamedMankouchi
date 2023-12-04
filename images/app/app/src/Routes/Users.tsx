@@ -38,7 +38,6 @@ export const Users = () => {
   const [createdUsers, setCreatedUsers] = useState<User[]>(registerdUsers);
   const [activeUsers, setActiveUsers] = useState<ActiveUser[]>([]);
   const [show, setShow] = useState(false);
-  const [updateValue, setUpdateValue] = useState("");
   const [showChange, setShowChange] = useState(false);
   const [inputs, setInputs] = useState<userInput>({
     username: "",
@@ -74,8 +73,6 @@ export const Users = () => {
   const handleUpdate = () => {
     const newUsername = newInput?.current?.value;
     const oldUsername = oldInput?.current?.children[0].innerHTML;
-
-    console.log(oldUsername);
 
     fetch(`http://localhost:80/users/${oldUsername}`, {
       method: "PUT",
