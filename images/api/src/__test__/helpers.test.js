@@ -1,18 +1,26 @@
 const checkValidInput = require("./unit/helper");
 
 describe("Checking if the sent inputs are valid", () => {
-  test("Checking name and password", () => {
-    expect(checkValidInput({ username: "", password: "" })).toBe(false);
-    expect(checkValidInput({ username: "Mohamed", password: "" })).toBe(false);
-    expect(checkValidInput({ username: "", password: "Mohamed123" })).toBe(
-      false
-    );
-    expect(checkValidInput({ username: null, password: null })).toBe(false);
-    expect(checkValidInput({ username: undefined, password: undefined })).toBe(
-      false
-    );
+  test("Checking name and email", () => {
+    expect(checkValidInput({ username: "", email: "" })).toBe(false);
+    expect(checkValidInput({ username: "Mohamed", email: "" })).toBe(false);
+    expect(checkValidInput({ username: "", email: "Mohamed123" })).toBe(false);
     expect(
-      checkValidInput({ username: "Mohamed", password: "Mohamed123" })
+      checkValidInput({ username: null, email: null, createdBy: null })
+    ).toBe(false);
+    expect(
+      checkValidInput({
+        username: undefined,
+        email: undefined,
+        createdBy: undefined,
+      })
+    ).toBe(false);
+    expect(
+      checkValidInput({
+        username: "Mohamed",
+        email: "Mohamed123",
+        createdBy: "Admin",
+      })
     ).toBe(true);
   });
 });
