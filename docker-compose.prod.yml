@@ -1,8 +1,7 @@
 version: "3.9"
 services:
   api:
-    build: ./images/api
-    command: ["npm", "run", "prod"]
+    image: mohamedmankouchi/api:latest
     environment:
       NODE_ENV:
       PG_CONNECTION_STRING:
