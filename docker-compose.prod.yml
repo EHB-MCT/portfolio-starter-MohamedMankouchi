@@ -1,9 +1,10 @@
 version: "3.9"
 services:
   api:
+    command: ["npm", "run", "prod"]
     image: mohamedmankouchi/api:latest
     environment:
-      NODE_ENV:
+      NODE_ENV: production
       POSTGRES_PASSWORD:
       POSTGRES_DB:
       POSTGRES_HOST: db
@@ -17,7 +18,7 @@ services:
   socket:
     image: mohamedmankouchi/socket:latest
     environment:
-      NODE_ENV:
+      NODE_ENV: production
       POSTGRES_PASSWORD:
       POSTGRES_DB:
       POSTGRES_HOST: db
