@@ -40,6 +40,37 @@ docker-compose up --build
 * **Mohamed Mankouchi** 
 
 
+## User API Documentation
+
+This endpoint allows you to retrieve a list of all users.
+```shell
+GET /users
+```
+
+This endpoint allows you to retrieve a specific user by their username.
+
+```shell
+GET /users/:username
+```
+
+This endpoint allows you to delete a specific user by their username.
+
+```shell
+DELETE /users/:username
+```
+
+This endpoint allows you to create a new user.
+```shell
+POST /users
+```
+
+This endpoint allows you to update the details of a specific user by their username.
+
+```shell
+PUT /users/:username
+```
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
