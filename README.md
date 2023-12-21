@@ -33,7 +33,9 @@ docker-compose up --build
 * node:16
 * version: 3.9
 
-
+### Built With
+* [![React][React.js]][React-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
 ## Authors
 
