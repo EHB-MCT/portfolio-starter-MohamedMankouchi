@@ -1,0 +1,32 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --detectOpenHandles --forceExit",
+    "test-watch": "jest --detectOpenHandles --watchAll",
+    "dev": "npm run migrate && npm run seed && npm run test && node ./src/index.js",
+    "prod": "npm run migrate && npm run seed && node ./src/index.js",
+    "seed": "npx knex seed:run --cwd ./src/db",
+    "migrate": "npx knex migrate:latest --cwd ./src/db",
+    "cicd": "npm run migrate && npm run seed && npm run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^2.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "knex": "^2.5.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.0.1",
+    "pg": "^8.11.3",
+    "supertest": "^6.3.3"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

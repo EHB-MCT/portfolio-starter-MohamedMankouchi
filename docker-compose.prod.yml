@@ -1,0 +1,61 @@
+version: "3.9"
+services:
+  api:
+    command: ["npm", "run", "prod"]
+    image: mohamedmankouchi/api:latest
+    environment:
+      NODE_ENV: production
+      POSTGRES_PASSWORD:
+      POSTGRES_DB:
+      POSTGRES_HOST: db
+      POSTGRES_USER:
+    ports:
+      - 80:3000
+    depends_on:
+      db:
+        condition: service_healthy
+
+  socket:
+    image: mohamedmankouchi/socket:latest
+    environment:
+      NODE_ENV: production
+      POSTGRES_PASSWORD:
+      POSTGRES_DB:
+      POSTGRES_HOST: db
+      POSTGRES_USER:
+    ports:
+      - 3001:3001
+    volumes:
+      - ./images/socket/src:/usr/app/src
+    depends_on:
+      db:
+        condition: service_healthy
+
+  app:
+    image: mohamedmankouchi/react:latest
+    ports:
+      - 5173:5173
+    volumes:
+      - ./images/app/app/src:/app/src
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16.0
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "test", "-d", "test"]
+      interval: 5s
+      timeout: 4s
+      retries: 10
+      start_period: 10s
+    restart: always
+    environment:
+      POSTGRES_PASSWORD:
+      POSTGRES_DB:
+      POSTGRES_USER:
+      POSTGRES_HOST_AUTH_METHOD:
+    volumes:
+      - ./_volumes/database:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
